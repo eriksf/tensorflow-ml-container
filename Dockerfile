@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu22.04
+FROM nvidia/cuda:12.5.1-cudnn-runtime-ubuntu22.04
 LABEL maintainer="Erik Ferlanti <eferlanti@tacc.utexas.edu>"
 
 # Update OS / Install Python
@@ -10,7 +10,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Install tensorflow
-RUN pip install tensorflow==2.15.0 tensorflow-hub keras==2.15.0
+RUN pip install tensorflow[and-cuda]==2.19.0 tensorflow-hub==0.16.1
 
 # Install Jupyter and useful libraries
 RUN pip install jupyter==1.1.1 \
